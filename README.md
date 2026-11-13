@@ -2,8 +2,7 @@
 
 Você recebeu a exportação de reservas de hotel de uma empresa cliente da Onfly. O CLI deste projeto deveria gerar um relatório JSON consolidado, mas **entrega números errados**.
 
-**Sua tarefa:** encontrar e corrigir os defeitos do CLI, fazer os testes fornecidos passarem e
-entregar o projeto.
+**Sua tarefa:** 1 ) encontrar e corrigir os defeitos do CLI, 2 ) fazer os testes fornecidos passarem e entregar o projeto.
 
 ## Como rodar
 
@@ -11,14 +10,27 @@ Requisitos: Python 3.11+ e pytest para os testes (`requirements-dev.txt`).
 
 ```bash
 python3.11 -m venv .venv
+py -3.11 -m venv .venv
 source .venv/bin/activate
+.venv\Scripts\activate
 pip install -r requirements-dev.txt
 
 PYTHONPATH=src python -m onfly\_report \\
   --input data/reservas\_hoteis.csv \\
   --rates data/taxas\_cambio.csv \\
   --output output/report.json
+
+
+
+$env:PYTHONPATH = "src"
+python -m onfly_report --input data\reservas_hoteis.csv --rates data\taxas_cambio.csv --output output\report.json
+
+
 ```
+
+
+
+
 
 O relatório é gravado em `output/report.json`; o CLI cria o diretório. Um resumo é impresso no
 stdout.
@@ -232,10 +244,10 @@ testes fornecidos passam sem alteração. Testes adicionais são considerados.
 
 ## Checklist
 
-* \[ ] O CLI roda com Python 3.11 (`PYTHONPATH=src python -m onfly\_report ...`).
-* \[ ] O comando de execução gera `output/report.json` sem erro.
-* \[ ] O relatório segue o contrato acima.
-* \[ ] `pytest -q` passa com os testes fornecidos.
+* \[ x] O CLI roda com Python 3.11 (`PYTHONPATH=src python -m onfly\_report ...`).
+* \[ x] O comando de execução gera `output/report.json` sem erro.
+* \[ x] O relatório segue o contrato acima.
+* \[ x] `pytest -q` passa com os testes fornecidos.
 * \[ ] `entrega/README-ENTREGA.md` preenchido.
 * \[ ] Sessão + declaração apenas no caminho com IA; investigação no README-ENTREGA nos dois caminhos.
 * \[ ] Repositório público no GitHub com o projeto e o link enviado.
